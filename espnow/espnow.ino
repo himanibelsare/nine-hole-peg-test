@@ -105,7 +105,7 @@ void loop() {
     if (result != ESP_OK) {
       Serial.println("Error sending the data 1");
     }
-    while (espData.id != 1 && espData.peg_in != 1) { delay(500); }
+    while (espData.id != 1 || espData.peg_in != 1) { delay(500); }
     espnow.peg_in = 1;
     
     //connection 2
@@ -138,7 +138,7 @@ void loop() {
     if (result != ESP_OK) {
       Serial.println("Error sending the data 5");
     }
-    while (espData.id != 1 && espData.peg_in != 4) { delay(500); }
+    while (espData.id != 1 || espData.peg_in != 4) { delay(500); }
     espnow.peg_in = 4;
 
     //connection 5
@@ -171,7 +171,7 @@ void loop() {
     if (result != ESP_OK) {
       Serial.println("Error sending the data 9");
     }
-    while (espData.id != 1 && espData.peg_in != 7) { delay(500); }
+    while (espData.id != 1 || espData.peg_in != 7) { delay(500); }
     espnow.peg_in = 7;
 
     //connection 8
@@ -224,7 +224,7 @@ void loop() {
     //connection 13
     espnow.start = 3;
     result = esp_now_send(broadcastAddress3, (uint8_t *) &espnow, sizeof(espnow_data));
-    while (espData.id != 3 && espData.peg_in != 13) { delay(500); }
+    while (espData.id != 3 || espData.peg_in != 13) { delay(500); }
     espnow.peg_in = 13;
 
     //connection 14
@@ -244,7 +244,7 @@ void loop() {
     //connection 16
     espnow.start = 5;
     result = esp_now_send(broadcastAddress3, (uint8_t *) &espnow, sizeof(espnow_data));
-    while (espData.id != 3 && espData.peg_in != 16) { delay(500); }
+    while (espData.id != 3 || espData.peg_in != 16) { delay(500); }
     espnow.peg_in = 16;
 
     //connection 17
